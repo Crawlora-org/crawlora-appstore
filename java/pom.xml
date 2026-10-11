@@ -8,7 +8,7 @@
   <version>0.1.1</version>
   <packaging>jar</packaging>
   <name>Crawlora App Store Java Client</name>
-  <description>Java client for Crawlora's hosted App Store API, with app search, details, reviews, ratings, privacy labels, version history, charts, editorial collections, and developers. Requires a Crawlora API key.</description>
+  <description>Java client for Crawlora's hosted App Store API, with app search, details, reviews, ratings, privacy labels, version history, charts, editorial collections, and developers. Requires a Crawlora API key. Includes all 15 public API endpoints.</description>
   <url>https://crawlora.net/?utm_source=maven-central&amp;utm_medium=referral&amp;utm_campaign=platform-clients&amp;utm_content=appstore-java-homepage</url>
   <licenses><license><name>MIT License</name><url>https://opensource.org/licenses/MIT</url><distribution>repo</distribution></license></licenses>
   <developers><developer><name>Crawlora</name><organization>Crawlora</organization><organizationUrl>https://crawlora.net/?utm_source=maven-central&amp;utm_medium=referral&amp;utm_campaign=platform-clients&amp;utm_content=appstore-java-organization-homepage</organizationUrl></developer></developers>

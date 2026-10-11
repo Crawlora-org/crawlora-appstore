@@ -3,8 +3,8 @@ require_relative "lib/crawlora/appstore/version"
 Gem::Specification.new do |spec|
   spec.name = "crawlora-appstore"
   spec.version = Crawlora::Appstore::VERSION
-  spec.summary = "App Store client for the Crawlora hosted API"
-  spec.description = "Credential-free App Store API access through Crawlora's hosted service."
+  spec.summary = "App Store API client for Crawlora (15 endpoints)"
+  spec.description = "Ruby client for Crawlora's hosted App Store API. Covers app search, details, reviews, ratings, privacy labels, version history, charts, editorial collections, and developers across 15 endpoints."
   spec.authors = ["Crawlora"]
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6"

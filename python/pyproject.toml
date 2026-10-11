@@ -5,8 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "crawlora-appstore"
 version = "0.1.1"
-description = "Typed App Store client for the Crawlora hosted API"
+description = "Crawlora App Store API client with 15 endpoints for app search, details, reviews, ratings, privacy labels, version history, charts, editorial collections, and developers"
 readme = "README.md"
+keywords = ["crawlora", "api-client", "web-scraping", "appstore", "app-store", "app-search", "details", "reviews", "ratings", "privacy-labels", "version-history", "charts", "editorial-collections", "developers"]
 requires-python = ">=3.10"
 license = "MIT"
 license-files = ["LICENSE"]

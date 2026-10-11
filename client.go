@@ -1,4 +1,4 @@
-// Package appstore is a focused Go client for Crawlora's App Store endpoints.
+// Package appstore is Crawlora's App Store API client for 15 endpoints, covering app search, details, reviews, ratings, privacy labels, version history, charts, editorial collections, and developers.
 // API documentation: https://crawlora.net/docs?utm_source=pkg.go.dev&utm_medium=referral&utm_campaign=platform-clients&utm_content=appstore-go-api-docs
 package appstore
 

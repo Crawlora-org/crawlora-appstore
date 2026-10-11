@@ -1,10 +1,10 @@
 {
   "name": "@crawlora-org/appstore",
   "version": "0.1.1",
-  "description": "Typed JavaScript client for the Crawlora App Store API",
+  "description": "Crawlora App Store API client with 15 endpoints for app search, details, reviews, ratings, privacy labels, version history, charts, editorial collections, and developers",
   "homepage": "https://crawlora.net/?utm_source=npm&utm_medium=referral&utm_campaign=platform-clients&utm_content=appstore-javascript-homepage",
   "bugs": { "url": "https://github.com/Crawlora-org/crawlora-appstore/issues" },
-  "keywords": ["crawlora", "api-client", "web-scraping", "appstore", "typescript"],
+  "keywords": ["crawlora", "api-client", "web-scraping", "appstore", "app-store", "app-search", "details", "reviews", "ratings", "privacy-labels", "version-history", "charts", "editorial-collections", "developers"],
   "type": "module",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
