@@ -1,6 +1,22 @@
 {
   "name": "crawlora/appstore",
-  "description": "App Store client for the Crawlora hosted API",
+  "description": "Crawlora App Store API client with 15 endpoints for app search, details, reviews, ratings, privacy labels, version history, charts, editorial collections, and developers",
+  "keywords": [
+    "crawlora",
+    "api-client",
+    "web-scraping",
+    "appstore",
+    "app-store",
+    "app-search",
+    "details",
+    "reviews",
+    "ratings",
+    "privacy-labels",
+    "version-history",
+    "charts",
+    "editorial-collections",
+    "developers"
+  ],
   "type": "library",
   "license": "MIT",
   "require": {
