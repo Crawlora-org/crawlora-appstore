@@ -1,0 +1,2050 @@
+{
+  "basePath": "/api/v1",
+  "definitions": {
+    "app.Response": {
+      "description": "The Response struct is used for wrapping the API response with a code, message, and data.",
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "description": "Data is the response data (can be any object or null)\n@example {\"id\": 1, \"name\": \"John Doe\"}"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "appstore.App": {
+      "properties": {
+        "app_id": {
+          "type": "string"
+        },
+        "appletv_screenshots": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "content_rating": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "current_version_reviews": {
+          "type": "integer"
+        },
+        "current_version_score": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "developer": {
+          "type": "string"
+        },
+        "developer_id": {
+          "type": "integer"
+        },
+        "developer_url": {
+          "type": "string"
+        },
+        "developer_website": {
+          "type": "string"
+        },
+        "free": {
+          "type": "boolean"
+        },
+        "genre_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "genres": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "histogram": {
+          "additionalProperties": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "ipad_screenshots": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "languages": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "platforms": {
+          "description": "Platforms is the set of Apple platforms this app is known to run on,\nusing Apple's own appPlatforms vocabulary: phone, pad, mac, tv, watch,\nvision. \"mac\" is always populated for free when this record IS a Mac\nApp Store listing (a separate catalog entry from the iPhone app, see\nKind on lookupItem). The rest (and a \"mac\" tag for Mac-Catalyst-capable\niPhone apps) are only populated when AppOption.Platforms was requested,\nsince they require an extra upstream page fetch.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "price": {
+          "type": "number"
+        },
+        "primary_genre": {
+          "type": "string"
+        },
+        "primary_genre_id": {
+          "type": "integer"
+        },
+        "ratings": {
+          "type": "integer"
+        },
+        "release_notes": {
+          "type": "string"
+        },
+        "released": {
+          "type": "string"
+        },
+        "required_os_version": {
+          "type": "string"
+        },
+        "reviews": {
+          "type": "integer"
+        },
+        "score": {
+          "type": "number"
+        },
+        "screenshots": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "size": {
+          "type": "string"
+        },
+        "supported_devices": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.AppStoreCollection": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "description": "room | eds",
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.AppStoreCollectionPage": {
+      "properties": {
+        "apps": {
+          "items": {
+            "$ref": "#/definitions/appstore.EditorialItem"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.CategoriesResult": {
+      "properties": {
+        "categories": {
+          "items": {
+            "$ref": "#/definitions/appstore.CategoryInfo"
+          },
+          "type": "array"
+        },
+        "collections": {
+          "items": {
+            "$ref": "#/definitions/appstore.CollectionInfo"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.CategoryInfo": {
+      "properties": {
+        "id": {
+          "example": 6014,
+          "type": "integer"
+        },
+        "name": {
+          "example": "Games",
+          "type": "string"
+        },
+        "parent_id": {
+          "example": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.CollectionInfo": {
+      "properties": {
+        "active": {
+          "example": true,
+          "type": "boolean"
+        },
+        "chart_type": {
+          "example": "top_free",
+          "type": "string"
+        },
+        "id": {
+          "example": "topfreeapplications",
+          "type": "string"
+        },
+        "platform": {
+          "example": "phone",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.EditorialItem": {
+      "properties": {
+        "age_rating": {
+          "type": "string"
+        },
+        "bundle_id": {
+          "type": "string"
+        },
+        "destination_id": {
+          "description": "DestinationID is the item's clickAction.destination.id. For a\n\"Browse by Category\" shelf item this is the target category's\neditorial page ID — pass it as EditorialCategoryOption.CategoryID for\nthe SAME device. Live-verified this is NOT unique to category links,\nthough: a regular single-app item (e.g. Lockup) carries its own ID\nhere too (a self-referential page link, duplicating ID/AdamID) — so\ncallers looking for a category ID should scope to the shelf titled\n\"Browse by Category\" rather than taking the first non-empty\nDestinationID from any shelf.",
+          "type": "string"
+        },
+        "developer_name": {
+          "type": "string"
+        },
+        "icon_url": {
+          "description": "template URL with unresolved size tokens",
+          "type": "string"
+        },
+        "id": {
+          "description": "App Store numeric track ID, when this item is a single app (same ID space as App.ID)",
+          "type": "integer"
+        },
+        "kind": {
+          "description": "raw Apple \"$kind\"",
+          "type": "string"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "rating_count": {
+          "type": "integer"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "description": "the item's own apps.apple.com page, when it links to one",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.EditorialPage": {
+      "properties": {
+        "device": {
+          "type": "string"
+        },
+        "page_id": {
+          "type": "string"
+        },
+        "section": {
+          "description": "main | arcade | category",
+          "type": "string"
+        },
+        "seo_title": {
+          "type": "string"
+        },
+        "shelves": {
+          "items": {
+            "$ref": "#/definitions/appstore.EditorialShelf"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.EditorialShelf": {
+      "properties": {
+        "content_type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/appstore.EditorialItem"
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "absent for hero/quick-links shelves",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.PrivacyCategory": {
+      "properties": {
+        "data_category": {
+          "type": "string"
+        },
+        "data_types": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "identifier": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.PrivacyDetails": {
+      "properties": {
+        "manage_privacy_choices_url": {
+          "type": "string"
+        },
+        "privacy_policy_url": {
+          "type": "string"
+        },
+        "privacy_types": {
+          "items": {
+            "$ref": "#/definitions/appstore.PrivacyType"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.PrivacyPurpose": {
+      "properties": {
+        "data_categories": {
+          "items": {
+            "$ref": "#/definitions/appstore.PrivacyCategory"
+          },
+          "type": "array"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.PrivacyType": {
+      "properties": {
+        "data_categories": {
+          "items": {
+            "$ref": "#/definitions/appstore.PrivacyCategory"
+          },
+          "type": "array"
+        },
+        "description": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "privacy_type": {
+          "type": "string"
+        },
+        "purposes": {
+          "items": {
+            "$ref": "#/definitions/appstore.PrivacyPurpose"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.RatingsResult": {
+      "properties": {
+        "histogram": {
+          "additionalProperties": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "ratings": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.Review": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "user_name": {
+          "type": "string"
+        },
+        "user_url": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.Suggestion": {
+      "properties": {
+        "term": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.VersionHistoryItem": {
+      "properties": {
+        "release_date": {
+          "type": "string"
+        },
+        "release_notes": {
+          "type": "string"
+        },
+        "release_timestamp": {
+          "type": "string"
+        },
+        "version_display": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.appDetailsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/appstore.App"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.categoriesResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/appstore.CategoriesResult"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.collectionResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/appstore.AppStoreCollectionPage"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.collectionsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/appstore.AppStoreCollection"
+          },
+          "type": "array"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.developerResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/appstore.App"
+          },
+          "type": "array"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.editorialResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/appstore.EditorialPage"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.listResultsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "items": {},
+          "type": "array"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.privacyResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/appstore.PrivacyDetails"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.ratingsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/appstore.RatingsResult"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.reviewsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/appstore.Review"
+          },
+          "type": "array"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.searchResultsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "items": {},
+          "type": "array"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.similarResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/appstore.App"
+          },
+          "type": "array"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.suggestResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/appstore.Suggestion"
+          },
+          "type": "array"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "appstore.versionHistoryResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/appstore.VersionHistoryItem"
+          },
+          "type": "array"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "api.crawlora.net",
+  "info": {
+    "contact": {
+      "email": "support@crawlora.net",
+      "name": "API Support",
+      "url": "https://crawlora.net"
+    },
+    "description": "Crawlora is a hosted web-data and SERP API: call documented REST endpoints and get normalized JSON instead of HTML to parse — across search/SERP, maps and local, e-commerce, app stores, social, media and finance. One API key; Crawlora runs the proxy rotation, headless browsers and parsing behind the scenes. Billed pay-on-success: charged only on a successful 2xx response, 1-10 credits per call, with a free tier of 2,000 credits per month and no card. A hosted MCP server (mcp.crawlora.net/mcp) exposes the same catalog as agent tools. Search endpoints accept `q` as a universal alias for whichever search-term parameter they document (`query`, `term`, `keyword`, or Amazon's `k`), so one parameter name works across the whole catalog; an explicitly supplied documented name always wins.",
+    "license": {
+      "name": "Crawlora Terms of Service",
+      "url": "https://crawlora.net/terms"
+    },
+    "termsOfService": "https://crawlora.net/terms",
+    "title": "Crawlora API",
+    "version": "1.2",
+    "x-logo": {
+      "altText": "Crawlora",
+      "backgroundColor": "#FFFFFF",
+      "url": "https://raw.githubusercontent.com/Crawlora-org/crawlora-mcp/main/assets/logo-400x400.png"
+    }
+  },
+  "paths": {
+    "/appstore/app": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized app metadata from the App Store lookup API. Provide either `id` (numeric track ID) or `app_id` (bundle ID). `id`/`app_id` can identify an iPhone, iPad, or Mac App Store listing.",
+        "operationId": "appstore-app",
+        "parameters": [
+          {
+            "description": "App Store numeric track ID (digits only)",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "553834731"
+          },
+          {
+            "description": "App Store bundle ID",
+            "in": "query",
+            "name": "app_id",
+            "type": "string",
+            "x-example": "com.midasplayer.apps.candycrushsaga"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          },
+          {
+            "default": false,
+            "description": "Include ratings histogram",
+            "in": "query",
+            "name": "ratings",
+            "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Include the full device-platform compatibility list (adds one extra upstream fetch)",
+            "in": "query",
+            "name": "platforms",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.appDetailsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "App not found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve full App Store app details",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/categories": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns every category ID and chart collection accepted by `/appstore/list`, including Games and Magazines & Newspapers subgenres with their parent ID. Collections carry their device platform (`phone`, `pad`, `mac`), chart type (`top_free`, `top_paid`, `top_grossing`, `top`, `new`), and whether the feed currently returns entries.",
+        "operationId": "appstore-categories",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.categoriesResponseDoc"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve App Store chart categories and collections",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/collection": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns app items embedded in an Apple room or EDS collection page. Discover IDs with `appstore_collections`. `platform` enum: `iphone`, `ipad`, `mac`, `vision`, `watch`, `tv`. `collection_id` must be a numeric room ID or `eds.UUID` ID returned by the discovery endpoint.",
+        "operationId": "appstore-collection",
+        "parameters": [
+          {
+            "description": "Apple device catalog",
+            "enum": [
+              "iphone",
+              "ipad",
+              "mac",
+              "vision",
+              "watch",
+              "tv"
+            ],
+            "in": "query",
+            "name": "platform",
+            "required": true,
+            "type": "string",
+            "x-example": "iphone"
+          },
+          {
+            "description": "Room ID or EDS UUID collection ID from appstore_collections",
+            "in": "query",
+            "name": "collection_id",
+            "required": true,
+            "type": "string",
+            "x-example": "6757461219"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.collectionResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Collection not found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve apps in one App Store collection",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/collections": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the room and EDS collection links embedded in Apple's browse page for one device. `platform` enum: `iphone`, `ipad`, `mac`, `vision`, `watch`, `tv`. Pass a returned `id` and the same platform to `appstore_collection` to retrieve the collection's apps.",
+        "operationId": "appstore-collections",
+        "parameters": [
+          {
+            "description": "Apple device catalog",
+            "enum": [
+              "iphone",
+              "ipad",
+              "mac",
+              "vision",
+              "watch",
+              "tv"
+            ],
+            "in": "query",
+            "name": "platform",
+            "required": true,
+            "type": "string",
+            "x-example": "iphone"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.collectionsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Page not found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Discover App Store editorial collections",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/developer/{dev_id}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns App Store apps associated with a specific developer artist ID.",
+        "operationId": "appstore-developer",
+        "parameters": [
+          {
+            "description": "Developer artist ID",
+            "in": "path",
+            "name": "dev_id",
+            "required": true,
+            "type": "string",
+            "x-example": "284882218"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.developerResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Developer not found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve apps by developer ID",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/editorial": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the curated editorial shelves from one of Apple's per-device App Store landing pages (the same content shown by apps.apple.com's device switcher). `device` enum: `iphone`, `ipad`, `mac`, `vision`, `watch`, `tv`. `section` enum: `main` (the device's Today/Discover/Apps & Games landing page), `arcade` (the device's Apple Arcade landing page). Watch has no Arcade page — `device=watch` with `section=arcade` returns `400`.",
+        "operationId": "appstore-editorial",
+        "parameters": [
+          {
+            "description": "Apple device catalog",
+            "enum": [
+              "iphone",
+              "ipad",
+              "mac",
+              "vision",
+              "watch",
+              "tv"
+            ],
+            "in": "query",
+            "name": "device",
+            "required": true,
+            "type": "string",
+            "x-example": "iphone"
+          },
+          {
+            "default": "main",
+            "description": "Editorial section within the device",
+            "enum": [
+              "main",
+              "arcade"
+            ],
+            "in": "query",
+            "name": "section",
+            "type": "string"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.editorialResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Page not found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve an App Store device or Arcade editorial landing page",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/editorial/category": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the curated editorial shelves for one device category page (e.g. \"Entertainment Apps for Vision\"). `category_id` is a numeric, device-specific editorial page ID — not a static enum — discovered from an `appstore_editorial` response for the SAME `device`, in its \"Browse by Category\" shelf items' `destination_id` field. `device` enum: `iphone`, `ipad`, `mac`, `vision`, `watch`, `tv`.",
+        "operationId": "appstore-editorial-category",
+        "parameters": [
+          {
+            "description": "Apple device catalog",
+            "enum": [
+              "iphone",
+              "ipad",
+              "mac",
+              "vision",
+              "watch",
+              "tv"
+            ],
+            "in": "query",
+            "name": "device",
+            "required": true,
+            "type": "string",
+            "x-example": "iphone"
+          },
+          {
+            "description": "Numeric App Store editorial page ID, discovered from appstore_editorial (same device)",
+            "in": "query",
+            "name": "category_id",
+            "required": true,
+            "type": "string",
+            "x-example": "6503709728"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.editorialResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Category page not found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve an App Store category-scoped editorial page",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/list": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns ranked App Store apps from an iTunes RSS collection, optionally expanded to full lookup details. `collection` enum: `topfreeapplications`, `toppaidapplications`, `topgrossingapplications`, `topfreeipadapplications`, `toppaidipadapplications`, `topgrossingipadapplications`, `topmacapps`, `topfreemacapps`, `topgrossingmacapps`, `toppaidmacapps`, `newapplications`, `newfreeapplications`, `newpaidapplications`. Of the Mac collections, only `topfreemacapps` currently returns ranked apps — `topmacapps`, `topgrossingmacapps`, and `toppaidmacapps` are accepted but Apple's feed for them is currently empty. There is no separate Games `collection` — combine any collection with `category=6014` (or a Games subgenre ID, e.g. `7012` for Puzzle) to get its Games-only equivalent, e.g. Top Free Games. See the endpoint markdown for the full category ID table.",
+        "operationId": "appstore-list",
+        "parameters": [
+          {
+            "description": "Chart collection slug, see description for the full enum",
+            "in": "query",
+            "name": "collection",
+            "type": "string",
+            "x-example": "topfreeapplications"
+          },
+          {
+            "description": "Numeric App Store category ID, see description for the full enum; e.g. 6014 = Games, 7012 = Games/Puzzle",
+            "in": "query",
+            "name": "category",
+            "type": "integer",
+            "x-example": 6014
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          },
+          {
+            "description": "Number of apps to return",
+            "in": "query",
+            "name": "num",
+            "type": "integer",
+            "x-example": 50
+          },
+          {
+            "default": false,
+            "description": "Expand each app via lookup API",
+            "in": "query",
+            "name": "full_detail",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.listResultsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve App Store collection rankings",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/privacy/{id}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the app privacy cards shown on the App Store page, including data categories and purposes.",
+        "operationId": "appstore-privacy",
+        "parameters": [
+          {
+            "description": "App Store numeric track ID (digits only)",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "324684580"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.privacyResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "App not found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve App Store privacy disclosures",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/ratings": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns total ratings count and the 1-5 star histogram shown on the App Store product page.",
+        "operationId": "appstore-ratings",
+        "parameters": [
+          {
+            "description": "App Store numeric track ID (digits only)",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "553834731"
+          },
+          {
+            "description": "App Store bundle ID",
+            "in": "query",
+            "name": "app_id",
+            "type": "string",
+            "x-example": "com.midasplayer.apps.candycrushsaga"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.ratingsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "App not found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve App Store ratings histogram",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/reviews": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one page of customer reviews for an app. Provide either `id` (numeric track ID) or `app_id` (bundle ID).",
+        "operationId": "appstore-reviews",
+        "parameters": [
+          {
+            "description": "App Store numeric track ID (digits only)",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "553834731"
+          },
+          {
+            "description": "App Store bundle ID",
+            "in": "query",
+            "name": "app_id",
+            "type": "string",
+            "x-example": "com.midasplayer.apps.candycrushsaga"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Review page number (1-10)",
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "x-example": 1
+          },
+          {
+            "default": "mostRecent",
+            "description": "Sort order",
+            "enum": [
+              "mostRecent",
+              "mostHelpful"
+            ],
+            "in": "query",
+            "name": "sort",
+            "type": "string"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.reviewsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "App not found, or not published in the requested storefront",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve App Store reviews",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns App Store search results for a term. Set `ids_only=true` to return only app IDs. `platform` enum: `phone`, `pad`, `mac`.",
+        "operationId": "appstore-search",
+        "parameters": [
+          {
+            "description": "Search term",
+            "in": "query",
+            "name": "term",
+            "required": true,
+            "type": "string",
+            "x-example": "panda"
+          },
+          {
+            "description": "Number of apps per page",
+            "in": "query",
+            "name": "num",
+            "type": "integer",
+            "x-example": 50
+          },
+          {
+            "description": "Search page number (1-based)",
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "x-example": 1
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          },
+          {
+            "default": false,
+            "description": "Return only app IDs",
+            "in": "query",
+            "name": "ids_only",
+            "type": "boolean"
+          },
+          {
+            "default": "phone",
+            "description": "App Store catalog to search: phone, pad, mac",
+            "enum": [
+              "phone",
+              "pad",
+              "mac"
+            ],
+            "in": "query",
+            "name": "platform",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.searchResultsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search the App Store",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/similar": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the related apps shown on the App Store product page. Provide either `id` (numeric track ID) or `app_id` (bundle ID).",
+        "operationId": "appstore-similar",
+        "parameters": [
+          {
+            "description": "App Store numeric track ID (digits only)",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "553834731"
+          },
+          {
+            "description": "App Store bundle ID",
+            "in": "query",
+            "name": "app_id",
+            "type": "string",
+            "x-example": "com.midasplayer.apps.candycrushsaga"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.similarResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "App not found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve \"You Might Also Like\" apps",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/suggest/{term}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns suggested search terms for the given partial keyword.",
+        "operationId": "appstore-suggest",
+        "parameters": [
+          {
+            "description": "Partial search term",
+            "in": "path",
+            "name": "term",
+            "required": true,
+            "type": "string",
+            "x-example": "panda"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.suggestResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve App Store search suggestions",
+        "tags": [
+          "appstore"
+        ]
+      }
+    },
+    "/appstore/version-history/{id}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the version history entries shown in the App Store \"What's New\" section.",
+        "operationId": "appstore-version-history",
+        "parameters": [
+          {
+            "description": "App Store numeric track ID (digits only)",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "553834731"
+          },
+          {
+            "description": "Two-letter storefront country code",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result language tag",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/appstore.versionHistoryResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "App not found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve App Store version history",
+        "tags": [
+          "appstore"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "x-api-key",
+      "type": "apiKey"
+    }
+  },
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "appstore"
+    }
+  ]
+}

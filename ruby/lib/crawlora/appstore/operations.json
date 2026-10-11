@@ -1,0 +1,1112 @@
+{
+  "platform": "appstore",
+  "operationCount": 15,
+  "operationIds": [
+    "appstore-app",
+    "appstore-categories",
+    "appstore-collection",
+    "appstore-collections",
+    "appstore-developer",
+    "appstore-editorial",
+    "appstore-editorial-category",
+    "appstore-list",
+    "appstore-privacy",
+    "appstore-ratings",
+    "appstore-reviews",
+    "appstore-search",
+    "appstore-similar",
+    "appstore-suggest",
+    "appstore-version-history"
+  ],
+  "methods": {
+    "app": "appstore-app",
+    "categories": "appstore-categories",
+    "collection": "appstore-collection",
+    "collections": "appstore-collections",
+    "developer": "appstore-developer",
+    "editorial": "appstore-editorial",
+    "editorial_category": "appstore-editorial-category",
+    "list": "appstore-list",
+    "privacy": "appstore-privacy",
+    "ratings": "appstore-ratings",
+    "reviews": "appstore-reviews",
+    "search": "appstore-search",
+    "similar": "appstore-similar",
+    "suggest": "appstore-suggest",
+    "version_history": "appstore-version-history"
+  },
+  "operations": {
+    "appstore-app": {
+      "id": "appstore-app",
+      "method": "GET",
+      "path": "/appstore/app",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "app_id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "ratings",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "platforms",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "App Store numeric track ID (digits only)",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "553834731"
+        },
+        {
+          "description": "App Store bundle ID",
+          "in": "query",
+          "name": "app_id",
+          "type": "string",
+          "x-example": "com.midasplayer.apps.candycrushsaga"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        },
+        {
+          "default": false,
+          "description": "Include ratings histogram",
+          "in": "query",
+          "name": "ratings",
+          "type": "boolean"
+        },
+        {
+          "default": false,
+          "description": "Include the full device-platform compatibility list (adds one extra upstream fetch)",
+          "in": "query",
+          "name": "platforms",
+          "type": "boolean"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-categories": {
+      "id": "appstore-categories",
+      "method": "GET",
+      "path": "/appstore/categories",
+      "pathParams": [],
+      "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-collection": {
+      "id": "appstore-collection",
+      "method": "GET",
+      "path": "/appstore/collection",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "platform",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "iphone",
+            "ipad",
+            "mac",
+            "vision",
+            "watch",
+            "tv"
+          ]
+        },
+        {
+          "name": "collection_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Apple device catalog",
+          "enum": [
+            "iphone",
+            "ipad",
+            "mac",
+            "vision",
+            "watch",
+            "tv"
+          ],
+          "in": "query",
+          "name": "platform",
+          "required": true,
+          "type": "string",
+          "x-example": "iphone"
+        },
+        {
+          "description": "Room ID or EDS UUID collection ID from appstore_collections",
+          "in": "query",
+          "name": "collection_id",
+          "required": true,
+          "type": "string",
+          "x-example": "6757461219"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-collections": {
+      "id": "appstore-collections",
+      "method": "GET",
+      "path": "/appstore/collections",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "platform",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "iphone",
+            "ipad",
+            "mac",
+            "vision",
+            "watch",
+            "tv"
+          ]
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Apple device catalog",
+          "enum": [
+            "iphone",
+            "ipad",
+            "mac",
+            "vision",
+            "watch",
+            "tv"
+          ],
+          "in": "query",
+          "name": "platform",
+          "required": true,
+          "type": "string",
+          "x-example": "iphone"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-developer": {
+      "id": "appstore-developer",
+      "method": "GET",
+      "path": "/appstore/developer/{dev_id}",
+      "pathParams": [
+        "dev_id"
+      ],
+      "queryParams": [
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Developer artist ID",
+          "in": "path",
+          "name": "dev_id",
+          "required": true,
+          "type": "string",
+          "x-example": "284882218"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-editorial": {
+      "id": "appstore-editorial",
+      "method": "GET",
+      "path": "/appstore/editorial",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "device",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "iphone",
+            "ipad",
+            "mac",
+            "vision",
+            "watch",
+            "tv"
+          ]
+        },
+        {
+          "name": "section",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "main",
+            "arcade"
+          ]
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Apple device catalog",
+          "enum": [
+            "iphone",
+            "ipad",
+            "mac",
+            "vision",
+            "watch",
+            "tv"
+          ],
+          "in": "query",
+          "name": "device",
+          "required": true,
+          "type": "string",
+          "x-example": "iphone"
+        },
+        {
+          "default": "main",
+          "description": "Editorial section within the device",
+          "enum": [
+            "main",
+            "arcade"
+          ],
+          "in": "query",
+          "name": "section",
+          "type": "string"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-editorial-category": {
+      "id": "appstore-editorial-category",
+      "method": "GET",
+      "path": "/appstore/editorial/category",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "device",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "iphone",
+            "ipad",
+            "mac",
+            "vision",
+            "watch",
+            "tv"
+          ]
+        },
+        {
+          "name": "category_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Apple device catalog",
+          "enum": [
+            "iphone",
+            "ipad",
+            "mac",
+            "vision",
+            "watch",
+            "tv"
+          ],
+          "in": "query",
+          "name": "device",
+          "required": true,
+          "type": "string",
+          "x-example": "iphone"
+        },
+        {
+          "description": "Numeric App Store editorial page ID, discovered from appstore_editorial (same device)",
+          "in": "query",
+          "name": "category_id",
+          "required": true,
+          "type": "string",
+          "x-example": "6503709728"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-list": {
+      "id": "appstore-list",
+      "method": "GET",
+      "path": "/appstore/list",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "collection",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "category",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "num",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "full_detail",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Chart collection slug, see description for the full enum",
+          "in": "query",
+          "name": "collection",
+          "type": "string",
+          "x-example": "topfreeapplications"
+        },
+        {
+          "description": "Numeric App Store category ID, see description for the full enum; e.g. 6014 = Games, 7012 = Games/Puzzle",
+          "in": "query",
+          "name": "category",
+          "type": "integer",
+          "x-example": 6014
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        },
+        {
+          "description": "Number of apps to return",
+          "in": "query",
+          "name": "num",
+          "type": "integer",
+          "x-example": 50
+        },
+        {
+          "default": false,
+          "description": "Expand each app via lookup API",
+          "in": "query",
+          "name": "full_detail",
+          "type": "boolean"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-privacy": {
+      "id": "appstore-privacy",
+      "method": "GET",
+      "path": "/appstore/privacy/{id}",
+      "pathParams": [
+        "id"
+      ],
+      "queryParams": [
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "App Store numeric track ID (digits only)",
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "324684580"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-ratings": {
+      "id": "appstore-ratings",
+      "method": "GET",
+      "path": "/appstore/ratings",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "app_id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "App Store numeric track ID (digits only)",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "553834731"
+        },
+        {
+          "description": "App Store bundle ID",
+          "in": "query",
+          "name": "app_id",
+          "type": "string",
+          "x-example": "com.midasplayer.apps.candycrushsaga"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-reviews": {
+      "id": "appstore-reviews",
+      "method": "GET",
+      "path": "/appstore/reviews",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "app_id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "mostRecent",
+            "mostHelpful"
+          ]
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "App Store numeric track ID (digits only)",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "553834731"
+        },
+        {
+          "description": "App Store bundle ID",
+          "in": "query",
+          "name": "app_id",
+          "type": "string",
+          "x-example": "com.midasplayer.apps.candycrushsaga"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Review page number (1-10)",
+          "in": "query",
+          "name": "page",
+          "type": "integer",
+          "x-example": 1
+        },
+        {
+          "default": "mostRecent",
+          "description": "Sort order",
+          "enum": [
+            "mostRecent",
+            "mostHelpful"
+          ],
+          "in": "query",
+          "name": "sort",
+          "type": "string"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-search": {
+      "id": "appstore-search",
+      "method": "GET",
+      "path": "/appstore/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "term",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "num",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "ids_only",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "platform",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "phone",
+            "pad",
+            "mac"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search term",
+          "in": "query",
+          "name": "term",
+          "required": true,
+          "type": "string",
+          "x-example": "panda"
+        },
+        {
+          "description": "Number of apps per page",
+          "in": "query",
+          "name": "num",
+          "type": "integer",
+          "x-example": 50
+        },
+        {
+          "description": "Search page number (1-based)",
+          "in": "query",
+          "name": "page",
+          "type": "integer",
+          "x-example": 1
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        },
+        {
+          "default": false,
+          "description": "Return only app IDs",
+          "in": "query",
+          "name": "ids_only",
+          "type": "boolean"
+        },
+        {
+          "default": "phone",
+          "description": "App Store catalog to search: phone, pad, mac",
+          "enum": [
+            "phone",
+            "pad",
+            "mac"
+          ],
+          "in": "query",
+          "name": "platform",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-similar": {
+      "id": "appstore-similar",
+      "method": "GET",
+      "path": "/appstore/similar",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "app_id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "App Store numeric track ID (digits only)",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "553834731"
+        },
+        {
+          "description": "App Store bundle ID",
+          "in": "query",
+          "name": "app_id",
+          "type": "string",
+          "x-example": "com.midasplayer.apps.candycrushsaga"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-suggest": {
+      "id": "appstore-suggest",
+      "method": "GET",
+      "path": "/appstore/suggest/{term}",
+      "pathParams": [
+        "term"
+      ],
+      "queryParams": [
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Partial search term",
+          "in": "path",
+          "name": "term",
+          "required": true,
+          "type": "string",
+          "x-example": "panda"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "appstore-version-history": {
+      "id": "appstore-version-history",
+      "method": "GET",
+      "path": "/appstore/version-history/{id}",
+      "pathParams": [
+        "id"
+      ],
+      "queryParams": [
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "App Store numeric track ID (digits only)",
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "553834731"
+        },
+        {
+          "description": "Two-letter storefront country code",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result language tag",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    }
+  }
+}
