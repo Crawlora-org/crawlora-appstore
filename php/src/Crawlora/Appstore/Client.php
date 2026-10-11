@@ -26,7 +26,7 @@ final class Client
     private ?\Closure $transport;
 
     public const PLATFORM = 'appstore';
-    public const VERSION = '0.1.0';
+    public const VERSION = '0.1.1';
     public const OPERATION_COUNT = 15;
     public const OPERATION_IDS = ["appstore-app", "appstore-categories", "appstore-collection", "appstore-collections", "appstore-developer", "appstore-editorial", "appstore-editorial-category", "appstore-list", "appstore-privacy", "appstore-ratings", "appstore-reviews", "appstore-search", "appstore-similar", "appstore-suggest", "appstore-version-history"];
 
@@ -57,7 +57,7 @@ JSON, true, 512, JSON_THROW_ON_ERROR);
         $url = $this->buildUrl($operation, $params);
         $headers = [
             'x-api-key: ' . $this->apiKey,
-            'User-Agent: crawlora-appstore-php/0.1.0',
+            'User-Agent: crawlora-appstore-php/0.1.1',
             'Accept: ' . (in_array('text/plain', $operation['produces'], true) ? 'application/json, text/plain' : 'application/json'),
         ];
         if ($payload !== null) {

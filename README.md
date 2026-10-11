@@ -8,7 +8,7 @@ Official Crawlora client packages for the hosted App Store API. These clients ca
 - Python: [`crawlora-appstore`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-appstore`](go.mod)
 - Ruby: [`crawlora-appstore`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-appstore:0.1.0`](java/README.md)
+- Java: [`net.crawlora:crawlora-appstore:0.1.1`](java/README.md)
 - PHP: [`crawlora/appstore`](php/README.md)
 
 For installation and runnable examples, use the README for your language. See the [API endpoint and parameter reference](docs/usage.md) for shared operation details.

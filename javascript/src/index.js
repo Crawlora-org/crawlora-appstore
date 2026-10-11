@@ -9,7 +9,7 @@ import {
 
 export class AppStoreClient extends CrawloraClient {
   constructor(options = {}) {
-    super({ ...options, userAgent: options.userAgent ?? "crawlora-appstore-js/0.1.0" });
+    super({ ...options, userAgent: options.userAgent ?? "crawlora-appstore-js/0.1.1" });
     this["app"] = (...args) => this.request("appstore-app", ...args);
     this["categories"] = (...args) => this.request("appstore-categories", ...args);
     this["collection"] = (...args) => this.request("appstore-collection", ...args);
@@ -37,5 +37,5 @@ export {
   CrawloraServerError
 };
 export { groups, operations, operationCount, OperationIds } from "./operations.js";
-export const VERSION = "0.1.0";
+export const VERSION = "0.1.1";
 export default AppStoreClient;

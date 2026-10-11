@@ -6,7 +6,7 @@ from .operations import OPERATION_COUNT, OPERATION_IDS, PLATFORM
 
 Client = AppStoreClient
 AsyncClient = AsyncAppStoreClient
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 DISPLAY_NAME = 'App Store'
 PLATFORM = 'appstore'
 CONTRACT_REVISION = 'sha256:d75b3ce6c6708361cbf9dc8413d9ab462e6d66aa3b363abf15289cb39c0cc986'
