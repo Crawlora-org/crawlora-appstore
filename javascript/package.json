@@ -4,7 +4,7 @@
   "description": "Crawlora App Store API client with 15 endpoints for app search, details, reviews, ratings, privacy labels, version history, charts, editorial collections, and developers",
   "homepage": "https://crawlora.net/?utm_source=npm&utm_medium=referral&utm_campaign=platform-clients&utm_content=appstore-javascript-homepage",
   "bugs": { "url": "https://github.com/Crawlora-org/crawlora-appstore/issues" },
-  "keywords": ["crawlora", "api-client", "web-scraping", "appstore", "app-store", "app-search", "details", "reviews", "ratings", "privacy-labels", "version-history", "charts", "editorial-collections", "developers"],
+  "keywords": ["crawlora", "api-client", "sdk", "web-scraping", "scraping-api", "appstore", "app-store", "appstore-api", "app-store-api", "appstore-scraper", "app-store-scraper", "appstore-data", "app-store-data", "appstore-app-search", "appstore-details", "appstore-reviews", "appstore-ratings", "appstore-privacy-labels", "appstore-version-history", "appstore-charts"],
   "type": "module",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
