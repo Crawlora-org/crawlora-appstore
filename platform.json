@@ -1,11 +1,11 @@
 {
   "async_class_name": "AsyncAppStoreClient",
   "class_name": "AppStoreClient",
-  "contract_revision": "sha256:d75b3ce6c6708361cbf9dc8413d9ab462e6d66aa3b363abf15289cb39c0cc986",
+  "contract_revision": "sha256:6211ab803d8da5196a95427c7021c31c333f10c8338fa9bd6ee32fb3a18eef21",
   "display_name": "App Store",
   "general_sdk_version": "1.46.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-appstore",
-  "golang_version": "0.1.1",
+  "golang_version": "0.1.2",
   "group_name": "appstore",
   "java_description": "Java client for Crawlora's hosted App Store API, with app search, details, reviews, ratings, privacy labels, version history, charts, editorial collections, and developers. Requires a Crawlora API key.",
   "maven_artifact_id": "crawlora-appstore",
@@ -16,18 +16,25 @@
   "php_repository": "https://github.com/Crawlora-org/crawlora-appstore",
   "platform": "appstore",
   "python_name": "crawlora-appstore",
-  "repository": "https://github.com/Crawlora-org/crawlora-appstore",
-  "ruby_gem_name": "crawlora-appstore",
-  "source_contract_sha256": "8f37412b34b49c443ff8c115dadaf9b6a2a82fd767af53137ce5e9f6b288ea20",
-  "version": "0.1.1",
   "releases": [
     {
-      "version": "0.1.1",
-      "date": "2026-10-12",
+      "changes": [
+        "Updated operation contracts: appstore-app, appstore-collection, appstore-developer, appstore-editorial, appstore-editorial-category, appstore-privacy, appstore-ratings, appstore-reviews, appstore-similar, appstore-suggest, appstore-version-history."
+      ],
+      "date": "2026-10-14",
+      "version": "0.1.2"
+    },
+    {
       "changes": [
         "Publish npm releases through GitHub Actions with provenance.",
         "Expand API endpoint documentation and package metadata for discoverability."
-      ]
+      ],
+      "date": "2026-10-12",
+      "version": "0.1.1"
     }
-  ]
+  ],
+  "repository": "https://github.com/Crawlora-org/crawlora-appstore",
+  "ruby_gem_name": "crawlora-appstore",
+  "source_contract_sha256": "edf94a318d422a94556084a811322eca2f95fd990cb37ad55abc6475c46b633a",
+  "version": "0.1.2"
 }

@@ -20,51 +20,65 @@
     "appstore.App": {
       "properties": {
         "app_id": {
+          "description": "Bundle ID of the app, for example `com.openai.chat`.",
           "type": "string"
         },
         "appletv_screenshots": {
+          "description": "URLs of the app's Apple TV screenshots.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "content_rating": {
+          "description": "Age rating of the app, for example `4+`.",
           "type": "string"
         },
         "currency": {
+          "description": "Currency code of `price`.",
           "type": "string"
         },
         "current_version_reviews": {
+          "description": "Number of user ratings for the current version.",
           "type": "integer"
         },
         "current_version_score": {
+          "description": "Average user rating of the current version.",
           "type": "number"
         },
         "description": {
+          "description": "Full description of the app from its App Store page.",
           "type": "string"
         },
         "developer": {
+          "description": "Name of the app's developer.",
           "type": "string"
         },
         "developer_id": {
+          "description": "App Store ID of the developer.",
           "type": "integer"
         },
         "developer_url": {
+          "description": "App Store page URL of the developer.",
           "type": "string"
         },
         "developer_website": {
+          "description": "Website URL the developer lists for the app.",
           "type": "string"
         },
         "free": {
+          "description": "`true` when `price` is 0.",
           "type": "boolean"
         },
         "genre_ids": {
+          "description": "IDs of all genres the app is listed under.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "genres": {
+          "description": "Names of all genres the app is listed under.",
           "items": {
             "type": "string"
           },
@@ -75,21 +89,26 @@
             "format": "int64",
             "type": "integer"
           },
+          "description": "Number of ratings for each star value, keyed by star value. Present only when `ratings=true` was requested.",
           "type": "object"
         },
         "icon": {
+          "description": "URL of the app icon.",
           "type": "string"
         },
         "id": {
+          "description": "App Store numeric track ID of the app.",
           "type": "integer"
         },
         "ipad_screenshots": {
+          "description": "URLs of the app's iPad screenshots.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "languages": {
+          "description": "Languages the app supports, as two-letter ISO codes.",
           "items": {
             "type": "string"
           },
@@ -103,57 +122,73 @@
           "type": "array"
         },
         "price": {
+          "description": "Price of the app in `currency`. It is 0 for free apps.",
           "type": "number"
         },
         "primary_genre": {
+          "description": "Name of the app's primary genre.",
           "type": "string"
         },
         "primary_genre_id": {
+          "description": "App Store ID of the app's primary genre.",
           "type": "integer"
         },
         "ratings": {
+          "description": "Total number of user ratings. Present only when `ratings=true` was requested.",
           "type": "integer"
         },
         "release_notes": {
+          "description": "Release notes of the current version.",
           "type": "string"
         },
         "released": {
+          "description": "Date and time the app was first released, in ISO 8601.",
           "type": "string"
         },
         "required_os_version": {
+          "description": "Minimum operating system version the app needs.",
           "type": "string"
         },
         "reviews": {
+          "description": "Number of user ratings the app has across all versions.",
           "type": "integer"
         },
         "score": {
+          "description": "Average user rating of the app across all versions.",
           "type": "number"
         },
         "screenshots": {
+          "description": "URLs of the app's screenshots.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "size": {
+          "description": "File size of the app in bytes, given as a string.",
           "type": "string"
         },
         "supported_devices": {
+          "description": "Device model identifiers the app supports.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "title": {
+          "description": "Name of the app.",
           "type": "string"
         },
         "updated": {
+          "description": "Date and time the current version was released, in ISO 8601.",
           "type": "string"
         },
         "url": {
+          "description": "App Store page URL of the app.",
           "type": "string"
         },
         "version": {
+          "description": "Current version number of the app.",
           "type": "string"
         }
       },
@@ -261,9 +296,11 @@
     "appstore.EditorialItem": {
       "properties": {
         "age_rating": {
+          "description": "Age rating shown on the item, for example `4+`.",
           "type": "string"
         },
         "bundle_id": {
+          "description": "Bundle ID of the app, when the item is a single app.",
           "type": "string"
         },
         "destination_id": {
@@ -271,6 +308,7 @@
           "type": "string"
         },
         "developer_name": {
+          "description": "Name of the developer shown on the item.",
           "type": "string"
         },
         "icon_url": {
@@ -286,15 +324,19 @@
           "type": "string"
         },
         "rating": {
+          "description": "Average rating shown on the item.",
           "type": "number"
         },
         "rating_count": {
+          "description": "Number of ratings shown on the item.",
           "type": "integer"
         },
         "subtitle": {
+          "description": "Subtitle shown on the item.",
           "type": "string"
         },
         "title": {
+          "description": "Title shown on the item.",
           "type": "string"
         },
         "url": {
@@ -307,9 +349,11 @@
     "appstore.EditorialPage": {
       "properties": {
         "device": {
+          "description": "Apple device catalog of the page: `iphone`, `ipad`, `mac`, `vision`, `watch` or `tv`.",
           "type": "string"
         },
         "page_id": {
+          "description": "Apple's ID for the editorial page.",
           "type": "string"
         },
         "section": {
@@ -317,15 +361,18 @@
           "type": "string"
         },
         "seo_title": {
+          "description": "Page title used for search results and browser tabs.",
           "type": "string"
         },
         "shelves": {
+          "description": "Content shelves on the page, in display order.",
           "items": {
             "$ref": "#/definitions/appstore.EditorialShelf"
           },
           "type": "array"
         },
         "title": {
+          "description": "Title of the editorial page.",
           "type": "string"
         }
       },
@@ -334,12 +381,15 @@
     "appstore.EditorialShelf": {
       "properties": {
         "content_type": {
+          "description": "Layout style Apple uses to show the shelf, for example `smallLockup`.",
           "type": "string"
         },
         "id": {
+          "description": "Apple's ID for the shelf.",
           "type": "string"
         },
         "items": {
+          "description": "Items shown in the shelf.",
           "items": {
             "$ref": "#/definitions/appstore.EditorialItem"
           },
@@ -355,15 +405,18 @@
     "appstore.PrivacyCategory": {
       "properties": {
         "data_category": {
+          "description": "Name of the data category the app handles.",
           "type": "string"
         },
         "data_types": {
+          "description": "Types of data in this category.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "identifier": {
+          "description": "Apple's identifier for the data category.",
           "type": "string"
         }
       },
@@ -372,12 +425,15 @@
     "appstore.PrivacyDetails": {
       "properties": {
         "manage_privacy_choices_url": {
+          "description": "URL where users can manage their privacy choices for the app.",
           "type": "string"
         },
         "privacy_policy_url": {
+          "description": "URL of the app's privacy policy.",
           "type": "string"
         },
         "privacy_types": {
+          "description": "Privacy types the app declares, each with the data it covers.",
           "items": {
             "$ref": "#/definitions/appstore.PrivacyType"
           },
@@ -389,15 +445,18 @@
     "appstore.PrivacyPurpose": {
       "properties": {
         "data_categories": {
+          "description": "Data categories collected for this purpose.",
           "items": {
             "$ref": "#/definitions/appstore.PrivacyCategory"
           },
           "type": "array"
         },
         "identifier": {
+          "description": "Apple's identifier for the purpose.",
           "type": "string"
         },
         "purpose": {
+          "description": "Name of the purpose the data is used for.",
           "type": "string"
         }
       },
@@ -406,21 +465,26 @@
     "appstore.PrivacyType": {
       "properties": {
         "data_categories": {
+          "description": "Data categories collected under this privacy type.",
           "items": {
             "$ref": "#/definitions/appstore.PrivacyCategory"
           },
           "type": "array"
         },
         "description": {
+          "description": "Apple's description of the privacy type.",
           "type": "string"
         },
         "identifier": {
+          "description": "Apple's identifier for the privacy type.",
           "type": "string"
         },
         "privacy_type": {
+          "description": "Name of the privacy type.",
           "type": "string"
         },
         "purposes": {
+          "description": "Purposes the data is used for under this privacy type.",
           "items": {
             "$ref": "#/definitions/appstore.PrivacyPurpose"
           },
@@ -436,9 +500,11 @@
             "format": "int64",
             "type": "integer"
           },
+          "description": "Number of ratings for each star value, keyed by star value.",
           "type": "object"
         },
         "ratings": {
+          "description": "Total number of user ratings.",
           "type": "integer"
         }
       },
@@ -447,30 +513,39 @@
     "appstore.Review": {
       "properties": {
         "id": {
+          "description": "App Store review ID.",
           "type": "string"
         },
         "score": {
+          "description": "Rating the reviewer gave the app.",
           "type": "integer"
         },
         "text": {
+          "description": "Text of the review.",
           "type": "string"
         },
         "title": {
+          "description": "Headline of the review.",
           "type": "string"
         },
         "updated": {
+          "description": "Date and time the review was last updated, in ISO 8601.",
           "type": "string"
         },
         "url": {
+          "description": "URL of the review.",
           "type": "string"
         },
         "user_name": {
+          "description": "Display name of the reviewer.",
           "type": "string"
         },
         "user_url": {
+          "description": "URL of the reviewer's profile.",
           "type": "string"
         },
         "version": {
+          "description": "App version the review was written for.",
           "type": "string"
         }
       },
@@ -479,6 +554,7 @@
     "appstore.Suggestion": {
       "properties": {
         "term": {
+          "description": "Suggested search term.",
           "type": "string"
         }
       },
@@ -487,15 +563,19 @@
     "appstore.VersionHistoryItem": {
       "properties": {
         "release_date": {
+          "description": "Release date of the version, as `YYYY-MM-DD`.",
           "type": "string"
         },
         "release_notes": {
+          "description": "Release notes of the version.",
           "type": "string"
         },
         "release_timestamp": {
+          "description": "Release time of the version, in RFC 3339.",
           "type": "string"
         },
         "version_display": {
+          "description": "Version number as shown on the App Store.",
           "type": "string"
         }
       },
@@ -773,7 +853,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized app metadata from the App Store lookup API. Provide either `id` (numeric track ID) or `app_id` (bundle ID). `id`/`app_id` can identify an iPhone, iPad, or Mac App Store listing.",
+        "description": "Returns app metadata from the App Store. Provide either `id` (numeric track ID) or `app_id` (bundle ID). `id`/`app_id` can identify an iPhone, iPad, or Mac App Store listing.",
         "operationId": "appstore-app",
         "parameters": [
           {
@@ -1089,7 +1169,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns App Store apps associated with a specific developer artist ID.",
+        "description": "Lists the App Store apps published by one developer, by Apple developer (artist) id, for an optional storefront country and language. Each app carries its id, title, description, icon and screenshots, price and currency, genres, version and release notes, rating score and counts, size, supported devices and languages.",
         "operationId": "appstore-developer",
         "parameters": [
           {
@@ -1446,7 +1526,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns the app privacy cards shown on the App Store page, including data categories and purposes.",
+        "description": "Returns the privacy disclosures shown on an App Store page for one app, identified by its numeric track `id` (digits only; anything else returns 400). The response has `privacy_policy_url`, `manage_privacy_choices_url` and `privacy_types`, each with its data categories and purposes. `country` and `lang` are optional.",
         "operationId": "appstore-privacy",
         "parameters": [
           {
@@ -1523,7 +1603,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns total ratings count and the 1-5 star histogram shown on the App Store product page.",
+        "description": "Returns the total `ratings` count and the 1 to 5 star `histogram` for an App Store app. Identify it with either the numeric track `id` or the bundle ID `app_id`; a bundle ID is resolved to the track ID first, and a non-numeric `id` returns 400. `country` and `lang` are optional.",
         "operationId": "appstore-ratings",
         "parameters": [
           {
@@ -1606,7 +1686,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns one page of customer reviews for an app. Provide either `id` (numeric track ID) or `app_id` (bundle ID).",
+        "description": "Returns one page of customer reviews for an App Store app, identified by `id` (numeric track ID) or `app_id` (bundle ID). `page` runs 1 to 10 and `sort` is `mostRecent` (default) or `mostHelpful`. Reviews carry `score`, `title`, `text`, `version`, `user_name` and `updated`. Returns 503 when reviews cannot be retrieved, and 404 when the app is not in that `country` storefront.",
         "operationId": "appstore-reviews",
         "parameters": [
           {
@@ -1894,7 +1974,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns suggested search terms for the given partial keyword.",
+        "description": "Returns App Store search suggestions for a partial search term given in the path, as a list of suggested `term` values. `country` is an optional two-letter storefront code.",
         "operationId": "appstore-suggest",
         "parameters": [
           {
@@ -1958,7 +2038,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns the version history entries shown in the App Store \"What's New\" section.",
+        "description": "Returns an App Store app's version history, as shown under \"What's New\", by numeric track id, for an optional storefront country and language. Each entry has the version number, release date and timestamp, and release notes. A non-numeric id returns `400`.",
         "operationId": "appstore-version-history",
         "parameters": [
           {

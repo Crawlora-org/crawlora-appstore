@@ -7,7 +7,7 @@ from .async_client import AsyncCrawloraClient
 class AppStoreClient(CrawloraClient):
     """Synchronous App Store API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-appstore-python/0.1.1')
+        kwargs.setdefault('user_agent', 'crawlora-appstore-python/0.1.2')
         super().__init__(*args, **kwargs)
 
     def app(self, **params: Any) -> Any:
@@ -103,7 +103,7 @@ class AppStoreClient(CrawloraClient):
 class AsyncAppStoreClient(AsyncCrawloraClient):
     """Asynchronous App Store API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-appstore-python/0.1.1')
+        kwargs.setdefault('user_agent', 'crawlora-appstore-python/0.1.2')
         super().__init__(*args, **kwargs)
 
     async def app(self, **params: Any) -> Any:

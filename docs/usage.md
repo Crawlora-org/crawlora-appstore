@@ -2,7 +2,7 @@
 
 This reference lists all 15 public App Store API endpoints exposed by the `@crawlora-org/appstore` and `crawlora-appstore` packages, covering app search, details, reviews, ratings, privacy labels, version history, charts, editorial collections, and developers. The clients call Crawlora's hosted API. Set `CRAWLORA_API_KEY` to a key for your Crawlora account before making requests. Service usage is billed under that account. These clients do not run a browser or scrape App Store locally; Crawlora is independent from and not endorsed by App Store or its owners.
 
-The package tracks the public API contract revision `sha256:d75b3ce6c6708361cbf9dc8413d9ab462e6d66aa3b363abf15289cb39c0cc986` bundled with release `0.1.1`. Maintainers can preview daily contract updates with the repository's `Sync live API contract` workflow; unchanged contracts do not produce package releases.
+The package tracks the public API contract revision `sha256:6211ab803d8da5196a95427c7021c31c333f10c8338fa9bd6ee32fb3a18eef21` bundled with release `0.1.2`. Maintainers can preview daily contract updates with the repository's `Sync live API contract` workflow; unchanged contracts do not produce package releases.
 
 Both packages expose all 15 operations in the bundled API contract. JavaScript uses camelCase methods and Python uses snake_case methods. Methods also remain available through the `appstore` group and the generated `Client` alias.
 

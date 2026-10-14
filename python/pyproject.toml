@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crawlora-appstore"
-version = "0.1.1"
+version = "0.1.2"
 description = "Crawlora App Store API client with 15 endpoints for app search, details, reviews, ratings, privacy labels, version history, charts, editorial collections, and developers"
 readme = "README.md"
 keywords = ["crawlora", "api-client", "sdk", "web-scraping", "scraping-api", "appstore", "app-store", "appstore-api", "app-store-api", "appstore-scraper", "app-store-scraper", "appstore-data", "app-store-data", "appstore-app-search", "appstore-details", "appstore-reviews", "appstore-ratings", "appstore-privacy-labels", "appstore-version-history", "appstore-charts"]

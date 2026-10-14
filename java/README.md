@@ -8,7 +8,7 @@ The official Java client for Crawlora's hosted App Store API. It exposes 15 endp
 <dependency>
   <groupId>net.crawlora</groupId>
   <artifactId>crawlora-appstore</artifactId>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
 </dependency>
 ```
 
